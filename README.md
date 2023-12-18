@@ -2,7 +2,7 @@
 
 ## To start the app
 
-1. Create a `.env` file with the following variables:
+1. Create a `.env` file with the following variables(ex. .env.example):
 
    - `POSTGRES_DB=`
    - `POSTGRES_USER=`
