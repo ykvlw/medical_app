@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=yourdbname
+      - POSTGRES_USER=youruser
+      - POSTGRES_PASSWORD=yourpassword
+    ports:
+      - "5432:5432"
+
+  api:
+    image: web_api
+    build:
+      context: ./server
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./server:/app:cached
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file: .env
+    entrypoint: /entrypoint.sh
+
+volumes:
+  postgres_data:

@@ -1,0 +1,8 @@
+.env
+.idea/
+__pycache__/
+.DS_Store
+/entity_images
+/server/tests/test_views/entity_images
+/server/entity_images
+.pytest_cache
